@@ -9,12 +9,25 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* --background: #0a0a0a; */
+    --background: #ffffff;
+    --foreground: #000000;
   }
 }
 
+.search-bar{
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid black;
+  min-width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+
 body {
+  padding: 16px;
+  display: flex;
+  justify-content: center ;
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
