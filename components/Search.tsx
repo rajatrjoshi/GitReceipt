@@ -32,6 +32,7 @@ const Search: React.FC = () => {
         setRepoData(await repoResponse.json());
 
         setLoading(false);
+        console.log(userData, repoData, commitData);
     }
 
     return <>
