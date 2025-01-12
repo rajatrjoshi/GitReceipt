@@ -12,7 +12,28 @@ export interface ResponseData {
 interface BarcodeLinkProps {
     link: string;  // link prop should be a string
   }
+  
+interface Repo {
+    id:number;
+    stargazers_count: number;
+    name: string;
+    forks_count:number;
+    language:string;
+}
 
+interface User {
+    name: string;
+    login: string;
+    id: number
+    node_id: string;
+    public_repos: number;
+    followers: number;
+    following: number;
+}
+
+interface Commit {
+    total_count: number;
+}
 
 const BarcodeLink: React.FC<BarcodeLinkProps>= ({link}) => {
     const barcodeRef = useRef(null);
@@ -36,11 +57,12 @@ const BarcodeLink: React.FC<BarcodeLinkProps>= ({link}) => {
 };
 
 
+
 const Search: React.FC = () => {
     const [username, setUserName] = useState<string>('');
-    const [userData, setUserData] = useState([]);
-    const [repoData, setRepoData] = useState([]);
-    const [commitData, setCommitData] = useState([]);
+    const [userData, setUserData] = useState<User>();
+    const [repoData, setRepoData] = useState<Repo[]>([]);
+    const [commitData, setCommitData] = useState<Commit>();
     const [toggle, setToggle] = useState<boolean>(false);
     const [isLoading, setLoading] = useState<boolean>(false);
     const [disableBtn, setDisableBtn] = useState<boolean>(true);
@@ -62,7 +84,6 @@ const Search: React.FC = () => {
 
         setLoading(false);
         setDisableBtn(false);
-        console.log(userData, repoData, commitData);
     };
 
     const today = new Date();
