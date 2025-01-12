@@ -195,7 +195,7 @@ const Generate: React.FC = () => {
                                     <tbody>
                                         <tr>
                                             <td className="text-left">MOST ACTIVE DAY:</td>
-                                            <td className="text-right">00</td>
+                                            <td className="text-right">Monday</td>
                                         </tr>
 
                                         <tr>
@@ -232,7 +232,7 @@ const Generate: React.FC = () => {
                             <div className="flex flex-col justify-start items-left text-left text-xs mb-4">
                                 <div>CARD #: **** **** **** 2025</div>
                                 <div>AUTH CODE: {repoData[0]?.id}</div>
-                                <div className="uppercase">CARDHOLDER: {userData?.login}</div>
+                                <div className="uppercase">CARDHOLDER: {userData?.name}</div>
                             </div>
 
                             <div>
