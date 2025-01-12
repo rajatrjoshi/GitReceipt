@@ -9,9 +9,12 @@ export interface ResponseData {
     data: string;
 }
 
+interface BarcodeLinkProps {
+    link: string;  // link prop should be a string
+  }
 
 
-const BarcodeLink = ({link}) => {
+const BarcodeLink: React.FC<BarcodeLinkProps>= ({link}) => {
     const barcodeRef = useRef(null);
   
     useEffect(() => {
