@@ -1,5 +1,5 @@
-import {useState } from "react";
-import Barcode from 'react-barcode';
+import {useEffect, useRef, useState } from "react";
+import JsBarcode from 'jsbarcode';
 
 export interface ISearchTemplate {
     textProp : string;
@@ -8,6 +8,29 @@ export interface ISearchTemplate {
 export interface ResponseData {
     data: string;
 }
+
+
+
+const BarcodeLink = ({link}) => {
+    const barcodeRef = useRef(null);
+  
+    useEffect(() => {
+      // Generate the barcode when the component mounts or when the `link` changes
+      if (barcodeRef.current) {
+        JsBarcode(barcodeRef.current, link, {
+            format:"CODE128",
+            width:0.75,
+            height:20,
+            lineColor:"#000000",
+            displayValue:true,
+            fontSize:10,
+            background:"#fff"
+        });
+      }
+    }, [link]);
+
+    return <svg ref={barcodeRef}></svg>; 
+};
 
 
 const Search: React.FC = () => {
@@ -63,6 +86,7 @@ const Search: React.FC = () => {
     const repo_forks = repoData
     .map(repo => repo?.forks_count)
     .reduce((acc, forks_count) => acc + forks_count, 0);
+
         
     const top_languages = [...new Set(repoData.map(repo => repo?.language))];
     const link = `https://github.com/${username}`;
@@ -192,15 +216,7 @@ const Search: React.FC = () => {
                             </div>
 
                             <div className="w-full">
-                                <Barcode 
-                                value={link}
-                                format="CODE128"
-                                width={0.75}
-                                height={20}
-                                lineColor="#000000"
-                                displayValue={true}
-                                fontSize={10}
-                                background="#fff"/>
+                                <BarcodeLink link={link} />
                             </div>
                         </div>
                     </>
