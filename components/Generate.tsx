@@ -58,7 +58,7 @@ const BarcodeLink: React.FC<BarcodeLinkProps>= ({link}) => {
 
 
 
-const Search: React.FC = () => {
+const Generate: React.FC = () => {
     const [username, setUserName] = useState<string>('');
     const [userData, setUserData] = useState<User>();
     const [repoData, setRepoData] = useState<Repo[]>([]);
@@ -250,4 +250,4 @@ const Search: React.FC = () => {
     </>
 }
 
-export default Search;
+export default Generate;

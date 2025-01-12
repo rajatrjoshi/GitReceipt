@@ -1,4 +1,4 @@
-import Search from "@/components/Search";
+import Generate from "@/components/Generate";
 import "@/styles/globals.css";
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
         <div className="p-0 text-slate-500">Generate a receipt-style summary of your GitHub profile</div>
         <div className="p-0 mt-2 text-slate-500 text-sm">made by rajat | bored at work</div>
       </div>
-      <Search />
+      <Generate />
     </div>
   </>;
 }
