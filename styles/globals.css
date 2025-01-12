@@ -19,6 +19,11 @@ body {
   justify-content: center;
   color: var(--foreground);
   background: var(--background);
-  font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji,
-    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
+}
+
+.receipt {
+  background: #f4f4f4;
+  box-shadow: 3px 2px 25px 5px #e5e7eb;
 }
